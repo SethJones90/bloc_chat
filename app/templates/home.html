@@ -1,5 +1,7 @@
 <h1>Chat Rooms</h1>
 
-<div ng-repeat="room in home.rooms">
-    <p>{{ room.name }}</p>
+<div class="room-list" ng-repeat="room in home.rooms">
+    <div>{{ room.$value }}</div>
 </div>
+
+<button class="btn btn-success" type="button" ng-click="home.open()">Create New Room</button>
