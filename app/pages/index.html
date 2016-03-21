@@ -8,10 +8,24 @@
 
 </head>
 <body>
-    <ui-view>
 
-    </ui-view>
+<div class="room-container" ng-controller="HomeCtrl as home">
+<!-- was in HomeCtrl -->
+    <h1 class="header-content">Bloc Chat</h1>
+    <div>
+        <div>
+            <button class="btn btn-info header-content" type="button" ng-click="home.open()">Create New Room</button>
+        </div>
+    </div>
 
+    <div class="room-list header content" ng-repeat="room in home.rooms">
+        <a ui-sref="chatRoom"><div ng-click="home.getActiveRoom(room)">{{ room.$value }}</div></a>
+    </div>
+<!-- was in HomeCtrl -->
+</div>
+<div class="container">
+    <div ui-view></div>
+</div>
 </body>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
@@ -22,5 +36,7 @@
     <!--<script src="/scripts/ui-bootstrap.js"></script>-->
     <script src="/scripts/controllers/HomeCtrl.js"></script>
     <script src="/scripts/controllers/ModalCtrl.js"></script>
+    <script src="/scripts/controllers/chatRoomCtrl.js"></script>
     <script src="/scripts/services/Room.js"></script>
+    <script src="/scripts/services/Message.js"></script>
 </html>

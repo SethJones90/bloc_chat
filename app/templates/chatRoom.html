@@ -1,0 +1,16 @@
+<div ng-controller="HomeCtrl as home" >
+
+<h1>room : {{ home.activeRoom.$value }}</h1>
+
+ <p>User Name: <input type="text" ng-model="newmessage.username"></p>
+ <p>Message: <input type="text" ng-model="newmessage.content"></p>
+ <button class= "btn btn-info" ng-click="home.createMessage(newmessage)">Send a message</button>
+
+    <div>
+          <div ng-repeat="message in home.messages">
+              <div><strong>{{message.username}}</strong></div>
+              <div>{{message.content}}</div>
+              <div>{{message.roomId}}</div>
+          </div>
+    </div>
+</div>
