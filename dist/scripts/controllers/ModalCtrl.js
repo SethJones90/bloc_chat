@@ -2,6 +2,7 @@
     function ModalCtrl(Room, $uibModalInstance) {
 
         this.rooms = Room.all;
+
         this.getRoom = function(){
             var newRoom = document.getElementById('newRoom').value;
             return newRoom;
@@ -13,7 +14,8 @@
 
              this.add = this.rooms.$add({
                  $value: newRoom
-         });
+             });
+
              $uibModalInstance.close(event);
              window.alert('You created a new room! ' + '(' + newRoom + ')');
           }

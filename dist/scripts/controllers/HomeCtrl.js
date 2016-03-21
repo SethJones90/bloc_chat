@@ -1,19 +1,41 @@
 (function() {
-    function HomeCtrl(Room, $uibModal) {
-        this.text = "TEST"
-        this.rooms = Room.all;
-        console.log(this.rooms);
+    function HomeCtrl(Room, Message, $uibModal, $scope, $firebase) {
+        vm = this;
+        vm.activeRoom = null;
+        vm.rooms = Room.all;
+//        console.log(vm.rooms);
 
-        this.open = function (){
+        vm.messages = Message.all;
+//        console.log(vm.rooms);
+
+        vm.open = function (){
 
             var modalInstance = $uibModal.open({
-            controller: 'ModalCtrl as modal',
-            templateUrl: '/templates/modal.html'
+                controller: 'ModalCtrl as modal',
+                templateUrl: '/templates/modal.html'
             });
         };
+
+        vm.setMessages = function(messages) {
+            vm.messages = messages
+        };
+
+        vm.getActiveRoom = function(room) {
+            vm.activeRoom = room;
+//            console.log(vm);
+            Message.findByRoom(room.$id, vm.setMessages);
+        };
+
+        vm.createMessage = function(message){
+//            console.log(vm);
+            message.roomId = vm.activeRoom.$id;
+            Message.create(message);
+            Message.findByRoom(vm.activeRoom.$id, vm.setMessages);
+        };
+
     }
 
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['Room', '$uibModal', HomeCtrl]);
+        .controller('HomeCtrl', ['Room', 'Message', '$scope', '$uibModal', HomeCtrl]);
  })();

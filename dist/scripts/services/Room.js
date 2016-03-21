@@ -5,8 +5,9 @@
     var rooms = $firebaseArray(roomRef);
 
     return {
-      all: rooms
+      all: rooms,
     };
+
   }
 
   angular
