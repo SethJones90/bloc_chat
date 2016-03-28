@@ -17,7 +17,7 @@
     };
 
     Message.findByRoom = function(roomId, callback) {
-        messagesRef.orderByChild('roomId').equalTo(roomId).once('value', function(snapshot) {
+        messagesRef.orderByChild('roomId').equalTo(roomId).on('value', function(snapshot) {
             callback(snapshot.val());
             console.log(snapshot.val());
         });
