@@ -1,18 +1,19 @@
 (function() {
     function ModalCtrl(Room, $uibModalInstance) {
+        vm = this;
 
-        this.rooms = Room.all;
+        vm.rooms = Room.all;
 
-        this.getRoom = function(){
+        vm.getRoom = function(){
             var newRoom = document.getElementById('newRoom').value;
             return newRoom;
         }
 
-         this.createRoom = function(){
-             var newRoom = this.getRoom();
-             console.log(this.getRoom());
+         vm.createRoom = function(){
+             var newRoom = vm.getRoom();
+             console.log(vm.getRoom());
 
-             this.add = this.rooms.$add({
+             vm.add = vm.rooms.$add({
                  $value: newRoom
              });
 
@@ -20,7 +21,7 @@
              window.alert('You created a new room! ' + '(' + newRoom + ')');
           }
 
-         this.cancel = function(){
+         vm.cancel = function(){
              $uibModalInstance.dismiss();
         };
 

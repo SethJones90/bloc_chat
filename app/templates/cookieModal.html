@@ -1,0 +1,15 @@
+<div>
+    <div class="modal-header">
+        <h2 class="modal-title">Select Your Username</h2>
+    </div>
+    <div class="modal-body">
+        <form ng-submit="cookieModal.createUser(this)">
+            <label for="input">What's your Username?</label>
+            <input id="input" ng-required="required" name="input" ng-model="cookieModal.input" ng-keydown="cookieModal.error=''">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <div ng-hide="!cookieModal.error">{{ cookieModal.error }} </div>
+    </div>
+</div>

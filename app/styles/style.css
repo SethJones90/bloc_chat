@@ -28,4 +28,23 @@
     position: relative;
     left: 15%;
     top: 0px;
+    left: 7%;
+    top: 0px;
+}
+
+.input-message {
+    position: absolute;
+    top:750px;
+}
+
+.message-instance {
+    margin:10px;
+    padding:10px;
+    margin:20px;
+    background-color: #f0f8ff;
+}
+
+h1.room-name {
+    position: relative;
+    left: 20px;
 }
